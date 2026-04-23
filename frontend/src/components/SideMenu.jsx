@@ -16,26 +16,29 @@ const SideMenu = ({ activeMenu }) => {
     console.log(route)
 
     if (route === "logout") {
-      handleLogut()
+      handleLogout()
       return
     }
 
     navigate(route)
   }
 
-  const handleLogut = async () => {
+  const handleLogout = async () => {
     try {
       const response = await axiosInstance.post("/auth/sign-out")
 
       if (response.data) {
         dispatch(signOutSuccess())
-
         navigate("/login")
       }
     } catch (error) {
-      console.log(error)
+      console.log("Logout error:", error)
+      // Even if server call fails, clear local state to allow user to try logging in again
+      dispatch(signOutSuccess())
+      navigate("/login")
     }
   }
+
 
   useEffect(() => {
     if (currentUser) {
