@@ -1,84 +1,49 @@
 # ProjectFlow 🚀
-### *Empowering Teams with Seamless Task Orchestration*
+### *The Ultimate Enterprise-Grade Task Orchestration System*
 
-**ProjectFlow** is a premium, full-stack enterprise task management application designed to streamline project workflows and enhance team productivity. Built with the modern MERN stack, it offers a robust solution for both administrators and team members to manage tasks, track progress through visual analytics, and generate detailed professional reports.
-
----
-
-## 📸 Project Showcase
-
-<div align="center">
-  <img src="./Screenshots/Screenshot 2026-04-23 175817.png" alt="Admin Dashboard" width="800"/>
-  <p><i>Figure 1: Admin Dashboard with Visual Analytics</i></p>
-</div>
-
-<div align="center">
-  <img src="./Screenshots/Screenshot 2026-04-23 175930.png" alt="Task Management" width="800"/>
-  <p><i>Figure 2: Advanced Task Management System</i></p>
-</div>
-
-<div align="center">
-  <div style="display: flex; justify-content: center; gap: 10px;">
-    <img src="./Screenshots/Screenshot 2026-04-23 180003.png" alt="Login Page" width="395"/>
-    <img src="./Screenshots/Screenshot 2026-04-23 180428.png" alt="User Dashboard" width="395"/>
-  </div>
-  <p><i>Figure 3: Secure Authentication & User-Specific Views</i></p>
-</div>
+**ProjectFlow** is a premium, high-performance task management ecosystem built with the MERN stack. It provides a sophisticated solution for teams to manage complex workflows, track progress with real-time analytics, and generate professional data reports. Whether you are an administrator managing a large team or a member focused on execution, ProjectFlow provides the tools you need to stay productive.
 
 ---
 
 ## ✨ Key Features
 
-### 🔐 Advanced Authentication & RBAC
-- **Secure Access**: JWT-based authentication with cookie-based session management.
-- **Dual Roles**: Tailored experiences for **Admins** (Management) and **Users** (Execution).
-- **Admin Join Code**: Restricted admin registration via private invitation tokens.
+### 🔐 Secure Authentication & Access Control
+- **Advanced JWT Auth**: Secure session management using JSON Web Tokens and HTTP-only cookies.
+- **Dual Role Architecture**: 
+  - **Admins**: Full oversight of users, tasks, and analytics.
+  - **Team Members**: Focused views for personal task management.
+- **Admin Join Code**: Restricted administrative registration via secure invitation tokens.
 
-### 📊 Powerful Dashboards
-- **Visual Analytics**: Real-time task distribution and priority level charts using **Recharts**.
-- **Status Tracking**: Monitor tasks through 'Pending', 'In Progress', and 'Completed' states.
-- **Team Overview**: Admins can manage the entire team and their respective workloads.
+### 📊 Real-time Data Visualization
+- **Analytical Dashboards**: Interactive Pie and Bar charts powered by **Recharts**.
+- **Live Status Monitoring**: Immediate visual feedback on task distribution (Pending, In Progress, Completed).
+- **Priority Heatmaps**: Quick identification of high-priority bottlenecks.
 
-### 📝 Comprehensive Task Management
-- **Full CRUD**: Create, assign, update, and delete tasks with ease.
-- **Detailed Tracking**: Set due dates, priorities, and descriptions.
-- **Search & Filter**: Quickly find tasks or users within the system.
+### 📝 Robust Task Management
+- **Full CRUD Operations**: Create, assign, update, and delete tasks seamlessly.
+- **Interactive Checklists**: Breakdown tasks into manageable sub-steps with live progress tracking.
+- **Smart Assignment**: Assign tasks to multiple team members with a streamlined selection interface.
 
-### 📁 Enterprise Reporting
-- **Excel Export**: Generate professional task and user activity reports using **ExcelJS**.
-- **Data-Driven Insights**: Downloadable summaries of team performance and task completion rates.
-
-### ☁️ Cloud Integration
-- **Image Storage**: Seamless profile picture management powered by **Cloudinary**.
-- **Production Ready**: Ephemeral-safe storage for all user-uploaded assets.
+### 📁 Enterprise Reporting & Cloud Storage
+- **Excel Report Engine**: Export comprehensive task and user performance reports using **ExcelJS**.
+- **Cloudinary Integration**: Production-ready, secure cloud storage for user profile images.
+- **Persistent Assets**: Never lose data due to ephemeral storage limitations.
 
 ---
 
 ## 🛠️ Technology Stack
 
-### Frontend
-- **React.js**: Modern component-based UI.
-- **Redux Toolkit**: Centralized state management.
-- **Tailwind CSS v4**: Cutting-edge, high-performance styling.
-- **Recharts**: Interactive data visualization.
-- **React Router**: Seamless single-page navigation.
-
-### Backend
-- **Node.js & Express**: High-performance API server.
-- **MongoDB & Mongoose**: Flexible NoSQL data storage.
-- **JWT & Cookies**: Secure, stateless authentication.
-- **Cloudinary**: Scalable cloud asset management.
-- **Multer**: Robust file handling middleware.
-- **ExcelJS**: Professional spreadsheet generation.
+| Layer | Technologies |
+|---|---|
+| **Frontend** | React.js, Redux Toolkit, Tailwind CSS v4, Recharts, React Router, Axios |
+| **Backend** | Node.js, Express.js, MongoDB, Mongoose, JWT, Multer |
+| **Cloud/Tools** | Cloudinary (Image Storage), ExcelJS (Reporting), bcryptjs (Security) |
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Installation & Setup
 
-### Prerequisites
-- Node.js (v18+)
-- MongoDB Atlas Account
-- Cloudinary Account
+Follow these precise steps to get your local development environment running perfectly.
 
 ### 1. Clone the Repository
 ```bash
@@ -87,44 +52,107 @@ cd Task-Manager-Project
 ```
 
 ### 2. Backend Configuration
-Create a `.env` file in the `backend` directory:
+**Terminal 1:**
+```bash
+cd backend
+npm install
+```
+Create a `.env` file in the `/backend` folder and populate it:
 ```env
 PORT=3000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_secret_key
+MONGO_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_jwt_secret_key
 ADMIN_JOIN_CODE=admin123
 FRONT_END_URL=http://localhost:5173
 
-# Cloudinary Config
+# Cloudinary Configuration
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 CLOUDINARY_FOLDER=project_flow_uploads
 ```
+Start the backend server:
+```bash
+npm run dev
+```
 
 ### 3. Frontend Configuration
-Create a `.env` file in the `frontend` directory:
+**Terminal 2:**
+```bash
+cd frontend
+npm install
+```
+Create a `.env` file in the `/frontend` folder:
 ```env
 VITE_BASE_URL=http://localhost:3000/api
 ```
-
-### 4. Run the Application
+Start the frontend development server:
 ```bash
-# In backend directory
-npm install
-npm run dev
-
-# In frontend directory
-npm install
 npm run dev
 ```
 
 ---
 
-## 📝 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 🖼️ Project Walkthrough (Screenshots)
+
+### 1️⃣ Authentication Flow
+<div align="center">
+  <table style="width: 100%">
+    <tr>
+      <td width="33%"><img src="./Screenshots/Screenshot 2026-04-23 175817.png" width="100%"/><br/><b>Login Page</b></td>
+      <td width="33%"><img src="./Screenshots/Screenshot 2026-04-23 175916.png" width="100%"/><br/><b>User Signup</b></td>
+      <td width="33%"><img src="./Screenshots/Screenshot 2026-04-23 175930.png" width="100%"/><br/><b>Admin Registration</b></td>
+    </tr>
+  </table>
+</div>
+
+### 2️⃣ Administrative Management
+<div align="center">
+  <table style="width: 100%">
+    <tr>
+      <td width="50%"><img src="./Screenshots/Screenshot 2026-04-23 180003.png" width="100%"/><br/><b>Admin Dashboard Overview</b></td>
+      <td width="50%"><img src="./Screenshots/Screenshot 2026-04-23 180545.png" width="100%"/><br/><b>Real-time Analytics Charts</b></td>
+    </tr>
+    <tr>
+      <td width="50%"><img src="./Screenshots/Screenshot 2026-04-23 180456.png" width="100%"/><br/><b>Create Task Interface</b></td>
+      <td width="50%"><img src="./Screenshots/Screenshot 2026-04-23 180428.png" width="100%"/><br/><b>Team Member Assignment</b></td>
+    </tr>
+  </table>
+</div>
+
+### 3️⃣ Reporting & Team Views
+<div align="center">
+  <table style="width: 100%">
+    <tr>
+      <td width="50%"><img src="./Screenshots/Screenshot 2026-04-23 180509.png" width="100%"/><br/><b>Team Members Directory</b></td>
+      <td width="50%"><img src="./Screenshots/Screenshot 2026-04-23 180530.png" width="100%"/><br/><b>Excel Report Generation</b></td>
+    </tr>
+  </table>
+</div>
+
+### 4️⃣ Team Member Experience
+<div align="center">
+  <table style="width: 100%">
+    <tr>
+      <td width="33%"><img src="./Screenshots/Screenshot 2026-04-23 180615.png" width="100%"/><br/><b>User Dashboard</b></td>
+      <td width="33%"><img src="./Screenshots/Screenshot 2026-04-23 180628.png" width="100%"/><br/><b>My Tasks List</b></td>
+      <td width="33%"><img src="./Screenshots/Screenshot 2026-04-23 180653.png" width="100%"/><br/><b>Task Details View</b></td>
+    </tr>
+  </table>
+</div>
+
+### 5️⃣ Task Execution Lifecycle
+<div align="center">
+  <table style="width: 100%">
+    <tr>
+      <td width="50%"><img src="./Screenshots/Screenshot 2026-04-23 180701.png" width="100%"/><br/><b>Checklist Progress Update</b></td>
+      <td width="50%"><img src="./Screenshots/Screenshot 2026-04-23 180716.png" width="100%"/><br/><b>Final Task Completion</b></td>
+    </tr>
+  </table>
+</div>
 
 ---
+
 <div align="center">
   Made with ❤️ by Adarsh
 </div>
