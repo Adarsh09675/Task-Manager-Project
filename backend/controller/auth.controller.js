@@ -73,12 +73,14 @@ export const signin = async (req, res, next) => {
       rest.profileImageUrl = rest.profileImageUrl.replace("https://localhost", "http://localhost");
     }
 
+    const isProduction = process.env.NODE_ENV === "production" || !req.get("host").includes("localhost");
+
     res
       .status(200)
       .cookie("access_token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        secure: isProduction,
+        sameSite: isProduction ? "none" : "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       })
       .json({
@@ -93,12 +95,15 @@ export const signin = async (req, res, next) => {
 /* ================= SIGNOUT ================= */
 export const signout = async (req, res, next) => {
   try {
+    const isProduction = process.env.NODE_ENV === "production" || !req.get("host").includes("localhost");
+
     res
       .clearCookie("access_token", {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        secure: isProduction,
+        sameSite: isProduction ? "none" : "lax",
       })
+
       .status(200)
       .json({
         success: true,
