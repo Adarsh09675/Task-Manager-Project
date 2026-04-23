@@ -86,6 +86,7 @@ export const signin = async (req, res, next) => {
       .json({
         success: true,
         user: rest,
+        token, // Return token for manual storage if cookies fail
       });
   } catch (error) {
     next(error);

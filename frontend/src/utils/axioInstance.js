@@ -15,6 +15,23 @@ const axiosInstance = axios.create({
   },
 })
 
+// Add a request interceptor to attach the token
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const state = store.getState()
+    const token = state.user?.token
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
+    return config
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
+)
+
+
 // Add a response interceptor to handle unauthorized errors
 axiosInstance.interceptors.response.use(
   (response) => response,

@@ -56,10 +56,10 @@ const Login = () => {
       // console.log(response.data)
 
       if (response.data.user.role === "admin") {
-        dispatch(signInSuccess(response.data.user))
+        dispatch(signInSuccess(response.data))
         navigate("/admin/dashboard")
       } else {
-        dispatch(signInSuccess(response.data.user))
+        dispatch(signInSuccess(response.data))
         navigate("/user/dashboard")
       }
     } catch (error) {

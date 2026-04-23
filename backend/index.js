@@ -21,6 +21,10 @@ const __dirname = path.dirname(__filename)
 
 const app = express()
 
+// Trust proxy for secure cookies in production
+app.set("trust proxy", 1)
+
+
 /* =======================
    Database Connection
 ======================= */
